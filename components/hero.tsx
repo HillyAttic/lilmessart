@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="flex flex-wrap gap-3 mt-8 justify-center">
           <Link
             href="#"
-            className="flex items-center gap-2 bg-[#740A03] text-[#0f0f0f] px-6 py-3 rounded-full font-medium text-sm hover:bg-[#8C0E04] transition-colors"
+            className="flex items-center gap-2 bg-[#740A03] text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-[#8C0E04] transition-colors"
           >
             <span className="opacity-60">◐</span> Shop collection
           </Link>

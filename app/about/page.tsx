@@ -67,7 +67,7 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] text-center mb-16">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] rounded-full">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] text-white rounded-full">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -78,7 +78,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] rounded-full">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] text-white rounded-full">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
@@ -89,7 +89,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] rounded-full">
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] text-white rounded-full">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] text-center mb-16">Our Journey</h2>
           <div className="space-y-12">
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] rounded-full flex items-center justify-center font-bold text-2xl">
+              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center font-bold text-2xl">
                 2018
               </div>
               <div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] rounded-full flex items-center justify-center font-bold text-2xl">
+              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center font-bold text-2xl">
                 2020
               </div>
               <div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] rounded-full flex items-center justify-center font-bold text-2xl">
+              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center font-bold text-2xl">
                 2024
               </div>
               <div>
@@ -214,7 +214,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/bestsellers"
-              className="inline-flex items-center gap-2 bg-[#740A03] text-[#0f0f0f] px-8 py-4 rounded-full font-medium text-lg hover:bg-[#8C0E04] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#740A03] text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#8C0E04] transition-colors"
             >
               Shop Bestsellers
             </Link>

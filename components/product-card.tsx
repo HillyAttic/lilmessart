@@ -22,7 +22,7 @@ export default function ProductCard({ image, brand, name, price, originalPrice }
         />
       </div>
       <div className="mt-3">
-        <span className="inline-block bg-[#740A03] text-[#0f0f0f] text-xs font-medium px-2.5 py-1 rounded-full">
+        <span className="inline-block bg-[#740A03] text-white text-xs font-medium px-2.5 py-1 rounded-full">
           {brand}
         </span>
         <h3 className="mt-2 text-sm font-bold uppercase tracking-wide text-[#0f0f0f] leading-tight">{name}</h3>

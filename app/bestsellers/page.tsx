@@ -201,7 +201,7 @@ export default function BestsellersPage() {
               />
             </div>
             <div>
-              <span className="inline-block bg-[#740A03] text-[#0f0f0f] text-sm font-medium px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-[#740A03] text-white text-sm font-medium px-4 py-1.5 rounded-full mb-4">
                 Featured Collection
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] mb-6 leading-tight">
@@ -283,7 +283,7 @@ export default function BestsellersPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="#"
-              className="inline-flex items-center gap-2 bg-[#740A03] text-[#0f0f0f] px-8 py-4 rounded-full font-medium text-lg hover:bg-[#8C0E04] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#740A03] text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#8C0E04] transition-colors"
             >
               Shop All Products
             </Link>
