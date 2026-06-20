@@ -13,7 +13,7 @@ export default function Footer() {
                 className="font-serif text-2xl font-bold tracking-tight text-[#0f0f0f]"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                Fern
+                lilmessart
               </span>
             </Link>
             <nav className="mt-6">

@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Fern — Crafted for Every Corner',
+  title: 'lilmessart — Crafted for Every Corner',
   description:
     'Bring warmth and charm to your space. Our curated collection of homeware and lifestyle goods. Unique pieces with exceptional quality.',
   generator: 'v0.app',

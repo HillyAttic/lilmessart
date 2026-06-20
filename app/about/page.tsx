@@ -12,7 +12,7 @@ export default function AboutPage() {
       <section className="relative w-full h-[70vh] min-h-[500px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&q=80"
-          alt="About Fern - Our story"
+          alt="About lilmessart - Our story"
           fill
           priority
           className="object-cover object-center"
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 Bringing warmth and charm to every space
               </h2>
               <p className="text-lg text-[#6b6b6b] leading-relaxed mb-6">
-                At Fern, we believe that every corner of your home should tell a story. Our curated collection of homeware
+                At lilmessart, we believe that every corner of your home should tell a story. Our curated collection of homeware
                 and lifestyle goods is designed to bring warmth, character, and exceptional quality to your everyday life.
               </p>
               <p className="text-lg text-[#6b6b6b] leading-relaxed">
@@ -115,7 +115,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">The Beginning</h3>
                 <p className="text-lg text-[#6b6b6b] leading-relaxed">
-                  Fern was born from a simple idea: to bring beautiful, quality homeware to modern homes. We started with just 10 carefully curated pieces.
+                  lilmessart was born from a simple idea: to bring beautiful, quality homeware to modern homes. We started with just 10 carefully curated pieces.
                 </p>
               </div>
             </div>

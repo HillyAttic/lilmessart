@@ -73,7 +73,7 @@ const products = [
   },
   {
     image: 'https://images.unsplash.com/photo-1583847267825-b4d8e2f6f9a6?w=600&q=80',
-    brand: 'Fern',
+    brand: 'lilmessart',
     name: 'Ceramic Plant Pot',
     price: '$ 42.00 USD',
   },
@@ -250,7 +250,7 @@ export default function BestsellersPage() {
                 ))}
               </div>
               <p className="text-[#6b6b6b] leading-relaxed mb-6">
-                "Fast shipping, beautiful packaging, and the products are even better in person. Fern has become my go-to for home decor."
+                "Fast shipping, beautiful packaging, and the products are even better in person. lilmessart has become my go-to for home decor."
               </p>
               <p className="font-bold text-[#0f0f0f]">— Michael Rodriguez</p>
             </div>

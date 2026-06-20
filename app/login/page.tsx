@@ -26,14 +26,14 @@ export default function LoginPage() {
               className="font-serif text-2xl font-bold tracking-tight text-white"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              Fern
+              lilmessart
             </span>
           </Link>
         </div>
 
         <div className="relative">
           <blockquote className="text-white/80 text-lg leading-relaxed italic">
-            &ldquo;Fern has transformed our home with beautifully crafted pieces.
+            &ldquo;lilmessart has transformed our home with beautifully crafted pieces.
             Every item feels thoughtful and unique.&rdquo;
           </blockquote>
           <div className="mt-4 flex items-center gap-3">
@@ -48,7 +48,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-white/30 text-xs relative">
-          &copy; {new Date().getFullYear()} Fern. All rights reserved.
+          &copy; {new Date().getFullYear()} lilmessart. All rights reserved.
         </p>
       </div>
 
@@ -62,7 +62,7 @@ export default function LoginPage() {
                 className="font-serif text-2xl font-bold tracking-tight text-[#0f0f0f]"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                Fern
+                lilmessart
               </span>
             </Link>
           </div>
@@ -132,7 +132,7 @@ export default function LoginPage() {
           </p>
 
           <p className="mt-4 text-center text-xs text-[#6b6b6b] lg:hidden">
-            &copy; {new Date().getFullYear()} Fern. All rights reserved.
+            &copy; {new Date().getFullYear()} lilmessart. All rights reserved.
           </p>
         </div>
       </div>

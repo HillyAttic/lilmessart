@@ -104,7 +104,7 @@ export default function BlogPage() {
       <section className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1920&q=80"
-          alt="Fern Blog"
+          alt="lilmessart Blog"
           fill
           priority
           className="object-cover object-center"

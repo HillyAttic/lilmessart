@@ -11,7 +11,7 @@ export default function ContactPage() {
       <section className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&q=80"
-          alt="Contact Fern"
+          alt="Contact lilmessart"
           fill
           priority
           className="object-cover object-center"
@@ -247,7 +247,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Fern location map"
+              title="lilmessart location map"
             />
           </div>
         </div>

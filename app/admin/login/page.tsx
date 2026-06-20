@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
               className="font-serif text-2xl font-bold tracking-tight text-white"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              Fern
+              lilmessart
             </span>
             <span className="text-xs font-medium text-white/50 uppercase tracking-wider ml-2">
               Admin
@@ -60,13 +60,13 @@ export default function AdminLoginPage() {
             </div>
             <div>
               <p className="text-white font-medium text-sm">Sarah Jenkins</p>
-              <p className="text-white/50 text-xs">Head of Operations, Fern</p>
+              <p className="text-white/50 text-xs">Head of Operations, lilmessart</p>
             </div>
           </div>
         </div>
 
         <p className="text-white/30 text-xs relative">
-          &copy; {new Date().getFullYear()} Fern. All rights reserved.
+          &copy; {new Date().getFullYear()} lilmessart. All rights reserved.
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export default function AdminLoginPage() {
                 className="font-serif text-2xl font-bold tracking-tight text-[#0f0f0f]"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                Fern
+                lilmessart
               </span>
               <span className="text-xs font-medium text-[#6b6b6b] uppercase tracking-wider ml-2">
                 Admin
@@ -109,7 +109,7 @@ export default function AdminLoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@fern.com"
+                placeholder="admin@lilmessart.com"
                 className="w-full rounded-md border border-[#e5e5e0] bg-white px-3 py-2.5 text-sm text-[#1a1d2e] placeholder:text-[#6b6b6b] focus:outline-none focus:ring-2 focus:ring-[#845adf]/30 focus:border-[#845adf] transition-all"
               />
             </div>
@@ -183,7 +183,7 @@ export default function AdminLoginPage() {
           </button>
 
           <p className="mt-6 text-center text-xs text-[#6b6b6b]">
-            &copy; {new Date().getFullYear()} Fern. All rights reserved.
+            &copy; {new Date().getFullYear()} lilmessart. All rights reserved.
           </p>
         </div>
       </div>
