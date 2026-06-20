@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function TimelessFeature() {
   return (
-    <section className="bg-[#e8f53c] py-16 md:py-24 px-6 md:px-10">
+    <section className="bg-[#740A03] py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Image */}
         <div className="relative aspect-[3/4] max-w-sm w-full">

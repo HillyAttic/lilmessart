@@ -138,7 +138,7 @@ export default function BlogPage() {
               />
             </div>
             <div>
-              <span className="inline-block bg-[#e8f53c] text-[#0f0f0f] text-sm font-medium px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-[#740A03] text-[#0f0f0f] text-sm font-medium px-4 py-1.5 rounded-full mb-4">
                 Featured Post
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0f0f0f] mb-4 leading-tight">
@@ -201,7 +201,7 @@ export default function BlogPage() {
                   />
                 </div>
                 <div>
-                  <span className="inline-block bg-[#e4f23a] text-[#0f0f0f] text-xs font-medium px-3 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-[#740A03] text-[#0f0f0f] text-xs font-medium px-3 py-1 rounded-full mb-3">
                     {post.category}
                   </span>
                   <h2 className="text-xl font-bold text-[#0f0f0f] mb-3 group-hover:opacity-70 transition-opacity leading-tight">
@@ -237,11 +237,11 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-[#e8f53c] transition-colors"
+              className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-[#740A03] transition-colors"
             />
             <button
               type="submit"
-              className="px-8 py-4 rounded-full bg-[#e8f53c] text-[#0f0f0f] font-medium hover:bg-[#d4e022] transition-colors whitespace-nowrap"
+              className="px-8 py-4 rounded-full bg-[#740A03] text-[#0f0f0f] font-medium hover:bg-[#8C0E04] transition-colors whitespace-nowrap"
             >
               Subscribe
             </button>
@@ -271,7 +271,7 @@ export default function BlogPage() {
                   />
                 </div>
                 <div>
-                  <span className="inline-block bg-[#e4f23a] text-[#0f0f0f] text-xs font-medium px-3 py-1 rounded-full mb-2">
+                  <span className="inline-block bg-[#740A03] text-[#0f0f0f] text-xs font-medium px-3 py-1 rounded-full mb-2">
                     {blogPosts[1].category}
                   </span>
                   <h3 className="text-lg font-bold text-[#0f0f0f] mb-2 leading-tight">
@@ -293,7 +293,7 @@ export default function BlogPage() {
                   />
                 </div>
                 <div>
-                  <span className="inline-block bg-[#e4f23a] text-[#0f0f0f] text-xs font-medium px-3 py-1 rounded-full mb-2">
+                  <span className="inline-block bg-[#740A03] text-[#0f0f0f] text-xs font-medium px-3 py-1 rounded-full mb-2">
                     {blogPosts[2].category}
                   </span>
                   <h3 className="text-lg font-bold text-[#0f0f0f] mb-2 leading-tight">

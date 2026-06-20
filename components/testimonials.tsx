@@ -40,7 +40,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#e8f53c] py-20 px-6 md:px-10">
+    <section className="bg-[#740A03] py-20 px-6 md:px-10">
       <h2 className="text-center text-xl font-bold uppercase tracking-wide text-[#0f0f0f] mb-12">
         Loved by those who care
       </h2>

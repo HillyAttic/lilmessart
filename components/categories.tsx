@@ -44,7 +44,7 @@ export default function Categories() {
               <h3 className="text-white font-black uppercase text-2xl md:text-4xl tracking-tight text-shadow">
                 {cat.name}
               </h3>
-              <span className="flex items-center gap-1.5 bg-[#e8f53c] text-[#0f0f0f] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#d4e022] transition-colors whitespace-nowrap">
+              <span className="flex items-center gap-1.5 bg-[#740A03] text-[#0f0f0f] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#8C0E04] transition-colors whitespace-nowrap">
                 Shop {cat.name}
               </span>
             </div>
