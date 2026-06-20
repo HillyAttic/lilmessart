@@ -20,12 +20,10 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <h1
-          className="font-sans font-black uppercase text-[#0f0f0f] leading-[0.92] tracking-[-0.02em] text-balance"
-          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}
+          className="font-sans font-medium uppercase text-[#0f0f0f] leading-[0.95] tracking-[-0.02em] text-balance"
+          style={{ fontSize: 'clamp(2.5rem, 6vw, 5.75rem)' }}
         >
-          Crafted for
-          <br />
-          every corner
+          Crafted for every corner
         </h1>
 
         <p className="mt-6 text-base md:text-lg text-[#1a1a1a] max-w-md leading-relaxed">
