@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react"
 import { Upload, X, ImageIcon, Loader2 } from "lucide-react"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { storage } from "@/lib/firebase"
+import { preprocessImage } from "@/lib/preprocess-image"
 
 interface Props {
   /** Currently set image URL (for previewing existing images) */
@@ -38,20 +39,25 @@ export default function ImageUpload({ currentImage, onImageUploaded, onImageRemo
     setUploading(true)
     setProgress(0)
 
-    // Show local preview immediately
-    const localUrl = URL.createObjectURL(file)
-    setPreview(localUrl)
-
     try {
+      // Preprocess: remove excess whitespace and scale content to fill frame
+      const processedBlob = await preprocessImage(file)
+      const processedFile =
+        processedBlob instanceof File ? processedBlob : new File([processedBlob], file.name, { type: "image/png" })
+
+      // Show local preview immediately
+      const localUrl = URL.createObjectURL(processedFile)
+      setPreview(localUrl)
+
       // Create a unique path — products/{sanitized-name}-{timestamp}
-      const ext = file.name.split(".").pop() ?? "jpg"
+      const ext = "png"
       const sanitizedName = file.name
         .replace(/[^a-zA-Z0-9_-]/g, "")
         .slice(0, 40) || "product"
       const fileName = `${sanitizedName}-${Date.now()}.${ext}`
       const storageRef = ref(storage, `products/${fileName}`)
 
-      const uploadTask = uploadBytesResumable(storageRef, file)
+      const uploadTask = uploadBytesResumable(storageRef, processedFile)
 
       // Track progress
       const downloadUrl = await new Promise<string>((resolve, reject) => {
