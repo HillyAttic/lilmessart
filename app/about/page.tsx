@@ -44,17 +44,18 @@ export default function AboutPage() {
                 At lilmessart, we believe that every corner of your home should tell a story. Our curated collection of homeware
                 and lifestyle goods is designed to bring warmth, character, and exceptional quality to your everyday life.
               </p>
-              <p className="text-lg text-[#6b6b6b] leading-relaxed">
+              <p className="text-lg text-[#6b6b6b] leading-relaxed mb-6">
                 Founded in 2018, we've grown from a small studio to a beloved brand trusted by thousands of homes worldwide.
               </p>
+              <p className="text-lg text-[#6b6b6b] leading-relaxed">
+                Founded by Akanksha Sharma with a passion in crafting and exceptional art.
+              </p>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
-                alt="Our mission"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+            <div className="relative aspect-square overflow-hidden rounded-lg flex items-center justify-center bg-[#f5f5f0] p-8">
+              <img
+                src="/images/founder.svg"
+                alt="Our founder"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
@@ -151,51 +152,45 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] text-center mb-16">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80"
-                  alt="Sarah Johnson"
-                  fill
-                  className="object-cover"
-                  sizes="256px"
+              <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full">
+                <img
+                  src="https://mindandculture.org/wordpress6/wp-content/uploads/2018/06/Fotolia_188161178_XS.jpg"
+                  alt="Nidhi Sharma"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Sarah Johnson</h3>
-              <p className="text-lg text-[#6b6b6b] mb-4">Founder & Creative Director</p>
+              <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Nidhi Sharma</h3>
+              <p className="text-lg text-[#6b6b6b] mb-4">Head of Operations</p>
               <p className="text-[#6b6b6b] leading-relaxed">
-                With 15 years in design, Sarah brings vision and passion to every collection.
+                Nidhi keeps everything running smoothly, ensuring exceptional customer experiences.
               </p>
             </div>
             <div className="text-center">
-              <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
-                  alt="Michael Chen"
-                  fill
-                  className="object-cover"
-                  sizes="256px"
+              <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full">
+                <img
+                  src="https://mindandculture.org/wordpress6/wp-content/uploads/2018/06/Fotolia_188161178_XS.jpg"
+                  alt="Arpita Sharma"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Michael Chen</h3>
-              <p className="text-lg text-[#6b6b6b] mb-4">Head of Design</p>
+              <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Arpita Sharma</h3>
+              <p className="text-lg text-[#6b6b6b] mb-4">Co-Founder</p>
               <p className="text-[#6b6b6b] leading-relaxed">
-                Michael's eye for detail ensures every piece meets our high standards.
+                Arpita brings vision and passion to every collection with years of creative direction.
               </p>
             </div>
             <div className="text-center">
-              <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80"
-                  alt="Emma Davis"
-                  fill
-                  className="object-cover"
-                  sizes="256px"
+              <div className="w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full">
+                <img
+                  src="https://mindandculture.org/wordpress6/wp-content/uploads/2018/06/Fotolia_188161178_XS.jpg"
+                  alt="Ayush Sharma"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Emma Davis</h3>
-              <p className="text-lg text-[#6b6b6b] mb-4">Operations Manager</p>
+              <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Ayush Sharma</h3>
+              <p className="text-lg text-[#6b6b6b] mb-4">Manager</p>
               <p className="text-[#6b6b6b] leading-relaxed">
-                Emma keeps everything running smoothly, ensuring exceptional customer experiences.
+                Ayush ensures every piece meets our high standards with an eye for detail.
               </p>
             </div>
           </div>
