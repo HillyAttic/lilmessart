@@ -5,24 +5,34 @@ import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
   {
-    question: 'How do I track my order',
+    question: 'How do I track my order?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Once your artwork ships, you\'ll receive a confirmation email with a tracking number and link. You can also log into your account to view real-time shipping updates. For custom or framed pieces, production time is typically 3–5 business days before dispatch.',
   },
   {
-    question: 'What is your return and exchange policy?',
+    question: 'Do you ship internationally?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Yes, we ship worldwide! International shipping costs are calculated at checkout based on the size and destination of your artwork. Please note that customs duties and taxes may apply depending on your country\'s policies, and delivery times range from 7–21 business days.',
   },
   {
-    question: 'How long will it take for my order to arrive?',
+    question: 'Can I return or exchange an artwork?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'Absolutely — we offer a 14-day satisfaction guarantee. If your artwork arrives damaged or isn\'t what you expected, contact us within 14 days of delivery for a full refund or exchange. The piece must be returned in its original condition and packaging. Printed and framed items are eligible; digital downloads are final sale.',
+  },
+  {
+    question: 'Are the artworks original or prints?',
+    answer:
+      'We offer both. Each product page clearly states whether the listing is for an original one-of-a-kind piece, a limited-edition print (signed and numbered), or an open-edition print. Originals come with a certificate of authenticity, and all prints are produced on archival-quality paper.',
+  },
+  {
+    question: 'How is the artwork packaged for shipping?',
+    answer:
+      'Every piece is carefully packed using acid-free tissue, foam corner protectors, and sturdy cardboard mailers or custom wood crates for larger canvases. Framed artworks are additionally wrapped in bubble film and shipped in double-walled boxes to ensure safe arrival.',
   },
   {
     question: 'How can I contact customer support?',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+      'You can reach us by email at support@lilmessart.com or through the contact form on our website. Our team typically responds within 24 hours on weekdays. For urgent inquiries about an existing order, include your order number for the fastest response.',
   },
 ]
 

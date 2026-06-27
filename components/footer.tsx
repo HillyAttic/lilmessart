@@ -91,14 +91,7 @@ export default function Footer() {
               Privacy
             </Link>
           </div>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-[#0f0f0f] transition-colors">
-              Built by BrynTaylor
-            </Link>
-            <Link href="#" className="hover:text-[#0f0f0f] transition-colors">
-              View all templates
-            </Link>
-          </div>
+          <p className="text-xs text-[#6b6b6b]">&copy; lilmessart 2026</p>
         </div>
       </div>
     </footer>

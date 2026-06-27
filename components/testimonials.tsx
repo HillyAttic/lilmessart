@@ -9,9 +9,10 @@ const testimonials = [
         well-crafted everything is.
       </>
     ),
-    name: 'DANIEL R',
-    handle: '@handle',
-    image: '/images/testimonial-daniel.png',
+    name: 'PRIYA S',
+    handle: '@priya.artspace',
+    image:
+      'https://images.unsplash.com/photo-1622207691293-5cd80466dab3?w=200&h=200&fit=crop&crop=face&auto=format',
   },
   {
     quote: (
@@ -20,9 +21,10 @@ const testimonials = [
         just for my home. I&apos;ll definitely be coming back for more!
       </>
     ),
-    name: 'EMMA L',
-    handle: '@handle',
-    image: '/images/testimonial-emma.png',
+    name: 'ARJUN K',
+    handle: '@arjun_kreative',
+    image:
+      'https://images.unsplash.com/photo-1712425718137-491250cfde88?w=200&h=200&fit=crop&crop=face&auto=format',
   },
   {
     quote: (
@@ -32,9 +34,10 @@ const testimonials = [
         happier!
       </>
     ),
-    name: 'SOPHIA M',
-    handle: '@handle',
-    image: '/images/testimonial-sophia.png',
+    name: 'ANANYA M',
+    handle: '@ananya.home',
+    image:
+      'https://images.unsplash.com/photo-1628477116196-48afe0d209e0?w=200&h=200&fit=crop&crop=face&auto=format',
   },
 ]
 
