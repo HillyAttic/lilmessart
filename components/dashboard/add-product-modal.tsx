@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { X } from "lucide-react"
+import { X, ChevronDown } from "lucide-react"
+import ImageUpload from "@/components/dashboard/image-upload"
 
 const categories = ["Bags", "Electronics", "Clothing", "Toys", "Fashion", "Footwear", "Furniture", "Mobiles"]
 const statuses = ["Available", "Not Available", "Limited Deal", "In Offer"]
@@ -13,6 +14,7 @@ interface Product {
   price: string
   stock: number
   status: string
+  image?: string
 }
 
 interface Props {
@@ -27,6 +29,7 @@ export default function AddProductModal({ onClose, onAdd }: Props) {
     price: "",
     stock: "",
     status: statuses[0],
+    image: "",
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -39,6 +42,7 @@ export default function AddProductModal({ onClose, onAdd }: Props) {
       price: form.price.startsWith("$") ? form.price : `$${form.price}`,
       stock: parseInt(form.stock) || 0,
       status: form.status,
+      image: form.image || undefined,
     })
   }
 
@@ -114,6 +118,30 @@ export default function AddProductModal({ onClose, onAdd }: Props) {
               />
             </div>
           </div>
+
+          <ImageUpload
+            currentImage={form.image || undefined}
+            onImageUploaded={(url) => setForm({ ...form, image: url })}
+            onImageRemove={() => setForm({ ...form, image: "" })}
+          />
+
+          {/* Collapsible Image URL fallback */}
+          <details className="group">
+            <summary className="flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors list-none">
+              <ChevronDown className="size-3 transition-transform group-open:rotate-180" />
+              Or enter a URL manually
+            </summary>
+            <div className="mt-2">
+              <label className="text-xs text-muted-foreground mb-1.5 block">Image URL</label>
+              <input
+                type="text"
+                value={form.image}
+                onChange={(e) => setForm({ ...form, image: e.target.value })}
+                placeholder="/images/product.png"
+                className="w-full h-9 px-3 text-sm bg-muted rounded-lg border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+          </details>
 
           <div className="flex gap-3 mt-2">
             <button
