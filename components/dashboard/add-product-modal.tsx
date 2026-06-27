@@ -39,7 +39,7 @@ export default function AddProductModal({ onClose, onAdd }: Props) {
       id,
       name: form.name,
       category: form.category,
-      price: form.price.startsWith("$") ? form.price : `$${form.price}`,
+      price: form.price.startsWith("₹") ? form.price : `₹${form.price}`,
       stock: parseInt(form.stock) || 0,
       status: form.status,
       image: form.image || undefined,
@@ -95,13 +95,13 @@ export default function AddProductModal({ onClose, onAdd }: Props) {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-muted-foreground mb-1.5 block">Price</label>
+              <label className="text-xs text-muted-foreground mb-1.5 block">Price (₹)</label>
               <input
                 required
                 type="text"
                 value={form.price}
                 onChange={(e) => setForm({ ...form, price: e.target.value })}
-                placeholder="$0.00"
+                placeholder="₹0.00"
                 className="w-full h-9 px-3 text-sm bg-muted rounded-lg border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </div>

@@ -7,14 +7,14 @@ import AddProductModal from "@/components/dashboard/add-product-modal"
 import EditProductModal from "@/components/dashboard/edit-product-modal"
 
 const initialProducts = [
-  { id: "#1734-9743", name: "Niker College Bag", category: "Bags", price: "$199.99", stock: 120, status: "Available", image: "/images/geo-play-blocks.png" },
-  { id: "#1234-4567", name: "Dslr Camera (50mm f/1.9 HRM Lens)", category: "Electronics", price: "$1,299.99", stock: 34, status: "Available", image: "/images/serene-sphere-decor.png" },
-  { id: "#1902-9883", name: "Outdoor Bomber Jacket", category: "Clothing", price: "$99.99", stock: 0, status: "Not Available", image: "/images/plush-pebble-stools.png" },
-  { id: "#8745-1232", name: "Light Blue Teddy", category: "Toys", price: "$79.00", stock: 12, status: "Limited Deal", image: "/images/skincare-collection.png" },
-  { id: "#1962-9033", name: "Orange Smart Watch (24mm)", category: "Fashion", price: "$199.99", stock: 55, status: "In Offer", image: "/images/geo-play-blocks.png" },
-  { id: "#5523-1122", name: "Leather Jacket for Men", category: "Clothing", price: "$249.00", stock: 18, status: "Available", image: "/images/plush-pebble-stools.png" },
-  { id: "#3312-8890", name: "Wireless Earbuds Pro", category: "Electronics", price: "$89.99", stock: 200, status: "Available", image: "/images/serene-sphere-decor.png" },
-  { id: "#9901-3344", name: "Running Shoes (Air Max)", category: "Footwear", price: "$129.99", stock: 0, status: "Not Available", image: "/images/skincare-collection.png" },
+  { id: "#1734-9743", name: "Niker College Bag", category: "Bags", price: "₹199.99", stock: 120, status: "Available", image: "/images/geo-play-blocks.png" },
+  { id: "#1234-4567", name: "Dslr Camera (50mm f/1.9 HRM Lens)", category: "Electronics", price: "₹1,299.99", stock: 34, status: "Available", image: "/images/serene-sphere-decor.png" },
+  { id: "#1902-9883", name: "Outdoor Bomber Jacket", category: "Clothing", price: "₹99.99", stock: 0, status: "Not Available", image: "/images/plush-pebble-stools.png" },
+  { id: "#8745-1232", name: "Light Blue Teddy", category: "Toys", price: "₹79.00", stock: 12, status: "Limited Deal", image: "/images/skincare-collection.png" },
+  { id: "#1962-9033", name: "Orange Smart Watch (24mm)", category: "Fashion", price: "₹199.99", stock: 55, status: "In Offer", image: "/images/geo-play-blocks.png" },
+  { id: "#5523-1122", name: "Leather Jacket for Men", category: "Clothing", price: "₹249.00", stock: 18, status: "Available", image: "/images/plush-pebble-stools.png" },
+  { id: "#3312-8890", name: "Wireless Earbuds Pro", category: "Electronics", price: "₹89.99", stock: 200, status: "Available", image: "/images/serene-sphere-decor.png" },
+  { id: "#9901-3344", name: "Running Shoes (Air Max)", category: "Footwear", price: "₹129.99", stock: 0, status: "Not Available", image: "/images/skincare-collection.png" },
 ]
 
 const statusStyle: Record<string, string> = {
