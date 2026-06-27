@@ -4,16 +4,17 @@ import { useState } from "react"
 import { Plus, Search, Edit2, Trash2, ChevronRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import AddProductModal from "@/components/dashboard/add-product-modal"
+import EditProductModal from "@/components/dashboard/edit-product-modal"
 
 const initialProducts = [
-  { id: "#1734-9743", name: "Niker College Bag", category: "Bags", price: "$199.99", stock: 120, status: "Available" },
-  { id: "#1234-4567", name: "Dslr Camera (50mm f/1.9 HRM Lens)", category: "Electronics", price: "$1,299.99", stock: 34, status: "Available" },
-  { id: "#1902-9883", name: "Outdoor Bomber Jacket", category: "Clothing", price: "$99.99", stock: 0, status: "Not Available" },
-  { id: "#8745-1232", name: "Light Blue Teddy", category: "Toys", price: "$79.00", stock: 12, status: "Limited Deal" },
-  { id: "#1962-9033", name: "Orange Smart Watch (24mm)", category: "Fashion", price: "$199.99", stock: 55, status: "In Offer" },
-  { id: "#5523-1122", name: "Leather Jacket for Men", category: "Clothing", price: "$249.00", stock: 18, status: "Available" },
-  { id: "#3312-8890", name: "Wireless Earbuds Pro", category: "Electronics", price: "$89.99", stock: 200, status: "Available" },
-  { id: "#9901-3344", name: "Running Shoes (Air Max)", category: "Footwear", price: "$129.99", stock: 0, status: "Not Available" },
+  { id: "#1734-9743", name: "Niker College Bag", category: "Bags", price: "$199.99", stock: 120, status: "Available", image: "/images/geo-play-blocks.png" },
+  { id: "#1234-4567", name: "Dslr Camera (50mm f/1.9 HRM Lens)", category: "Electronics", price: "$1,299.99", stock: 34, status: "Available", image: "/images/serene-sphere-decor.png" },
+  { id: "#1902-9883", name: "Outdoor Bomber Jacket", category: "Clothing", price: "$99.99", stock: 0, status: "Not Available", image: "/images/plush-pebble-stools.png" },
+  { id: "#8745-1232", name: "Light Blue Teddy", category: "Toys", price: "$79.00", stock: 12, status: "Limited Deal", image: "/images/skincare-collection.png" },
+  { id: "#1962-9033", name: "Orange Smart Watch (24mm)", category: "Fashion", price: "$199.99", stock: 55, status: "In Offer", image: "/images/geo-play-blocks.png" },
+  { id: "#5523-1122", name: "Leather Jacket for Men", category: "Clothing", price: "$249.00", stock: 18, status: "Available", image: "/images/plush-pebble-stools.png" },
+  { id: "#3312-8890", name: "Wireless Earbuds Pro", category: "Electronics", price: "$89.99", stock: 200, status: "Available", image: "/images/serene-sphere-decor.png" },
+  { id: "#9901-3344", name: "Running Shoes (Air Max)", category: "Footwear", price: "$129.99", stock: 0, status: "Not Available", image: "/images/skincare-collection.png" },
 ]
 
 const statusStyle: Record<string, string> = {
@@ -27,6 +28,7 @@ export default function ProductsPage() {
   const [products, setProducts] = useState(initialProducts)
   const [search, setSearch] = useState("")
   const [showModal, setShowModal] = useState(false)
+  const [editingProduct, setEditingProduct] = useState<typeof initialProducts[0] | null>(null)
 
   const filtered = products.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -40,6 +42,11 @@ export default function ProductsPage() {
 
   const handleDelete = (id: string) => {
     setProducts((prev) => prev.filter((p) => p.id !== id))
+  }
+
+  const handleEdit = (product: typeof initialProducts[0]) => {
+    setProducts((prev) => prev.map((p) => (p.id === product.id ? product : p)))
+    setEditingProduct(null)
   }
 
   return (
@@ -106,8 +113,13 @@ export default function ProductsPage() {
                 <tr key={p.id} className="border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors">
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-3">
-                      <div className="size-9 rounded-lg bg-muted flex items-center justify-center text-xs font-bold text-primary shrink-0">
-                        {p.name[0]}
+                      <div className="size-9 rounded-lg bg-muted flex items-center justify-center text-xs font-bold text-primary shrink-0 overflow-hidden">
+                        {p.image ? (
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                        ) : (
+                          p.name[0]
+                        )}
                       </div>
                       <div>
                         <p className="text-xs font-semibold text-foreground">{p.name}</p>
@@ -125,7 +137,10 @@ export default function ProductsPage() {
                   </td>
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-1">
-                      <button className="p-1.5 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors">
+                      <button
+                        onClick={() => setEditingProduct(p)}
+                        className="p-1.5 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors"
+                      >
                         <Edit2 className="size-3.5" />
                       </button>
                       <button
@@ -152,6 +167,14 @@ export default function ProductsPage() {
 
       {showModal && (
         <AddProductModal onClose={() => setShowModal(false)} onAdd={handleAdd} />
+      )}
+
+      {editingProduct && (
+        <EditProductModal
+          product={editingProduct}
+          onClose={() => setEditingProduct(null)}
+          onSave={handleEdit}
+        />
       )}
     </div>
   )
