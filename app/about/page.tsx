@@ -69,8 +69,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] text-white rounded-full">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-[#0f0f0f] mb-4">Quality First</h3>
@@ -80,8 +80,8 @@ export default function AboutPage() {
             </div>
             <div className="text-center">
               <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] text-white rounded-full">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.048 8.287 8.287 0 0 0 9 9.6a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-[#0f0f0f] mb-4">Sustainability</h3>
@@ -91,8 +91,8 @@ export default function AboutPage() {
             </div>
             <div className="text-center">
               <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#740A03] text-white rounded-full">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-[#0f0f0f] mb-4">Craftsmanship</h3>
@@ -110,33 +110,45 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-bold text-[#0f0f0f] text-center mb-16">Our Journey</h2>
           <div className="space-y-12">
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center font-bold text-2xl">
-                2018
+              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center">
+                <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">The Beginning</h3>
+                <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">
+                  <span className="text-[#740A03]">2018</span> — The Beginning
+                </h3>
                 <p className="text-lg text-[#6b6b6b] leading-relaxed">
                   lilmessart was born from a simple idea: to bring beautiful, quality homeware to modern homes. We started with just 10 carefully curated pieces.
                 </p>
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center font-bold text-2xl">
-                2020
+              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center">
+                <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Growing Community</h3>
+                <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">
+                  <span className="text-[#740A03]">2020</span> — Growing Community
+                </h3>
                 <p className="text-lg text-[#6b6b6b] leading-relaxed">
                   Our community grew to over 5,000 customers. We expanded our collection and partnered with artisans from around the world.
                 </p>
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center font-bold text-2xl">
-                2024
+              <div className="flex-shrink-0 w-20 h-20 bg-[#740A03] text-white rounded-full flex items-center justify-center">
+                <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.281 5.941" />
+                </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">Today</h3>
+                <h3 className="text-2xl font-bold text-[#0f0f0f] mb-2">
+                  <span className="text-[#740A03]">2024</span> — Today
+                </h3>
                 <p className="text-lg text-[#6b6b6b] leading-relaxed">
                   Now serving over 50,000 homes worldwide with a collection of 500+ unique pieces. Our mission remains the same: crafting for every corner.
                 </p>
