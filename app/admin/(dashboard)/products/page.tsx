@@ -2,20 +2,10 @@
 
 import { useState } from "react"
 import { Plus, Search, Edit2, Trash2, ChevronRight } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import AddProductModal from "@/components/dashboard/add-product-modal"
 import EditProductModal from "@/components/dashboard/edit-product-modal"
-
-const initialProducts = [
-  { id: "#1734-9743", name: "Niker College Bag", category: "Bags", price: "₹199.99", stock: 120, status: "Available", image: "/images/geo-play-blocks.png" },
-  { id: "#1234-4567", name: "Dslr Camera (50mm f/1.9 HRM Lens)", category: "Electronics", price: "₹1,299.99", stock: 34, status: "Available", image: "/images/serene-sphere-decor.png" },
-  { id: "#1902-9883", name: "Outdoor Bomber Jacket", category: "Clothing", price: "₹99.99", stock: 0, status: "Not Available", image: "/images/plush-pebble-stools.png" },
-  { id: "#8745-1232", name: "Light Blue Teddy", category: "Toys", price: "₹79.00", stock: 12, status: "Limited Deal", image: "/images/skincare-collection.png" },
-  { id: "#1962-9033", name: "Orange Smart Watch (24mm)", category: "Fashion", price: "₹199.99", stock: 55, status: "In Offer", image: "/images/geo-play-blocks.png" },
-  { id: "#5523-1122", name: "Leather Jacket for Men", category: "Clothing", price: "₹249.00", stock: 18, status: "Available", image: "/images/plush-pebble-stools.png" },
-  { id: "#3312-8890", name: "Wireless Earbuds Pro", category: "Electronics", price: "₹89.99", stock: 200, status: "Available", image: "/images/serene-sphere-decor.png" },
-  { id: "#9901-3344", name: "Running Shoes (Air Max)", category: "Footwear", price: "₹129.99", stock: 0, status: "Not Available", image: "/images/skincare-collection.png" },
-]
+import { useStore } from "@/lib/store-context"
+import type { Product } from "@/lib/data-types"
 
 const statusStyle: Record<string, string> = {
   "Available": "text-emerald-400 bg-emerald-400/10",
@@ -25,28 +15,36 @@ const statusStyle: Record<string, string> = {
 }
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState(initialProducts)
+  const { products, loading, addProduct, updateProduct, deleteProduct } = useStore()
   const [search, setSearch] = useState("")
   const [showModal, setShowModal] = useState(false)
-  const [editingProduct, setEditingProduct] = useState<typeof initialProducts[0] | null>(null)
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null)
 
   const filtered = products.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase()) ||
     p.category.toLowerCase().includes(search.toLowerCase())
   )
 
-  const handleAdd = (product: typeof initialProducts[0]) => {
-    setProducts((prev) => [product, ...prev])
+  const handleAdd = (product: Product) => {
+    addProduct(product)
     setShowModal(false)
   }
 
   const handleDelete = (id: string) => {
-    setProducts((prev) => prev.filter((p) => p.id !== id))
+    deleteProduct(id)
   }
 
-  const handleEdit = (product: typeof initialProducts[0]) => {
-    setProducts((prev) => prev.map((p) => (p.id === product.id ? product : p)))
+  const handleEdit = (product: Product) => {
+    updateProduct(product)
     setEditingProduct(null)
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64 text-muted-foreground text-sm">
+        Loading products…
+      </div>
+    )
   }
 
   return (

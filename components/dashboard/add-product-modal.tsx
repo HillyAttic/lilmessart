@@ -3,19 +3,10 @@
 import { useState } from "react"
 import { X, ChevronDown } from "lucide-react"
 import ImageUpload from "@/components/dashboard/image-upload"
+import type { Product } from "@/lib/data-types"
 
-const categories = ["Bags", "Electronics", "Clothing", "Toys", "Fashion", "Footwear", "Furniture", "Mobiles"]
+const categories = ["Illustration", "Abstract", "Landscape", "Still Life"]
 const statuses = ["Available", "Not Available", "Limited Deal", "In Offer"]
-
-interface Product {
-  id: string
-  name: string
-  category: string
-  price: string
-  stock: number
-  status: string
-  image?: string
-}
 
 interface Props {
   onClose: () => void

@@ -1,41 +1,27 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, Edit2, Trash2, ChevronRight, ShoppingBag, Shirt, Smartphone, Gift, Watch, Package, Footprints, Camera } from "lucide-react"
-
-const iconMap: Record<string, React.ElementType> = {
-  ShoppingBag, Shirt, Smartphone, Gift, Watch, Package, Footprints, Camera,
-}
-
-const initialCategories = [
-  { id: 1, name: "Bags", icon: "ShoppingBag", color: "bg-violet-500/20 text-violet-400", products: 34, description: "Handbags, backpacks, travel bags" },
-  { id: 2, name: "Clothing", icon: "Shirt", color: "bg-cyan-500/20 text-cyan-400", products: 128, description: "Men's and women's apparel" },
-  { id: 3, name: "Mobiles", icon: "Smartphone", color: "bg-emerald-500/20 text-emerald-400", products: 52, description: "Smartphones and accessories" },
-  { id: 4, name: "Toys", icon: "Gift", color: "bg-amber-500/20 text-amber-400", products: 76, description: "Children's toys and games" },
-  { id: 5, name: "Fashion", icon: "Watch", color: "bg-rose-500/20 text-rose-400", products: 43, description: "Watches, jewelry, accessories" },
-  { id: 6, name: "Electronics", icon: "Camera", color: "bg-blue-500/20 text-blue-400", products: 89, description: "Cameras, gadgets, devices" },
-  { id: 7, name: "Footwear", icon: "Footprints", color: "bg-orange-500/20 text-orange-400", products: 61, description: "Shoes, sandals, boots" },
-  { id: 8, name: "Furniture", icon: "Package", color: "bg-teal-500/20 text-teal-400", products: 27, description: "Home and office furniture" },
-]
+import { Plus, Edit2, Trash2, ChevronRight, ImageIcon } from "lucide-react"
+import { useStore } from "@/lib/store-context"
+import type { Category } from "@/lib/data-types"
 
 export default function CategoriesPage() {
-  const [categories, setCategories] = useState(initialCategories)
+  const { categories, loading, addCategory, updateCategory, deleteCategory } = useStore()
   const [showModal, setShowModal] = useState(false)
   const [editingId, setEditingId] = useState<number | null>(null)
-  const [form, setForm] = useState({ name: "", description: "" })
+  const [form, setForm] = useState({ name: "", description: "", image: "" })
 
   const handleAdd = () => {
     if (!form.name.trim()) return
-    const newCat = {
+    const newCat: Category = {
       id: Date.now(),
       name: form.name,
-      icon: "Package",
-      color: "bg-violet-500/20 text-violet-400",
+      image: form.image || undefined,
       products: 0,
       description: form.description,
     }
-    setCategories((prev) => [newCat, ...prev])
-    setForm({ name: "", description: "" })
+    addCategory(newCat)
+    setForm({ name: "", description: "", image: "" })
     setShowModal(false)
   }
 
@@ -43,21 +29,30 @@ export default function CategoriesPage() {
     const cat = categories.find((c) => c.id === id)
     if (!cat) return
     setEditingId(id)
-    setForm({ name: cat.name, description: cat.description })
+    setForm({ name: cat.name, description: cat.description, image: cat.image ?? "" })
     setShowModal(true)
   }
 
   const handleSaveEdit = () => {
-    setCategories((prev) =>
-      prev.map((c) => c.id === editingId ? { ...c, name: form.name, description: form.description } : c)
-    )
+    if (editingId === null) return
+    const cat = categories.find((c) => c.id === editingId)
+    if (!cat) return
+    updateCategory({ ...cat, name: form.name, description: form.description, image: form.image || undefined })
     setEditingId(null)
-    setForm({ name: "", description: "" })
+    setForm({ name: "", description: "", image: "" })
     setShowModal(false)
   }
 
   const handleDelete = (id: number) => {
-    setCategories((prev) => prev.filter((c) => c.id !== id))
+    deleteCategory(id)
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64 text-muted-foreground text-sm">
+        Loading categories…
+      </div>
+    )
   }
 
   return (
@@ -76,8 +71,8 @@ export default function CategoriesPage() {
         {[
           { label: "Total Categories", value: categories.length, color: "text-violet-400" },
           { label: "Total Products", value: categories.reduce((a, c) => a + c.products, 0), color: "text-cyan-400" },
-          { label: "Most Products", value: Math.max(...categories.map(c => c.products)), color: "text-emerald-400" },
-          { label: "Least Products", value: Math.min(...categories.map(c => c.products)), color: "text-amber-400" },
+          { label: "Most Products", value: categories.length ? Math.max(...categories.map(c => c.products)) : 0, color: "text-emerald-400" },
+          { label: "Least Products", value: categories.length ? Math.min(...categories.map(c => c.products)) : 0, color: "text-amber-400" },
         ].map((s) => (
           <div key={s.label} className="bg-card border border-border rounded-xl p-3">
             <p className="text-xs text-muted-foreground">{s.label}</p>
@@ -89,7 +84,7 @@ export default function CategoriesPage() {
       {/* Toolbar */}
       <div className="flex justify-end">
         <button
-          onClick={() => { setEditingId(null); setForm({ name: "", description: "" }); setShowModal(true) }}
+          onClick={() => { setEditingId(null); setForm({ name: "", description: "", image: "" }); setShowModal(true) }}
           className="flex items-center gap-2 h-9 px-4 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors"
         >
           <Plus className="size-4" />
@@ -99,41 +94,43 @@ export default function CategoriesPage() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {categories.map((cat) => {
-          const Icon = iconMap[cat.icon] || Package
-          return (
-            <div key={cat.id} className="bg-card border border-border rounded-xl p-4 flex flex-col gap-3 hover:border-primary/40 transition-colors group">
-              <div className="flex items-start justify-between">
-                <div className={`size-11 rounded-xl flex items-center justify-center ${cat.color}`}>
-                  <Icon className="size-5" />
-                </div>
-                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button
-                    onClick={() => handleEdit(cat.id)}
-                    className="p-1.5 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20"
-                  >
-                    <Edit2 className="size-3" />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(cat.id)}
-                    className="p-1.5 rounded-md bg-red-500/10 text-red-400 hover:bg-red-500/20"
-                  >
-                    <Trash2 className="size-3" />
-                  </button>
-                </div>
+        {categories.map((cat) => (
+          <div key={cat.id} className="bg-card border border-border rounded-xl p-4 flex flex-col gap-3 hover:border-primary/40 transition-colors group">
+            <div className="flex items-start justify-between">
+              <div className="size-11 rounded-xl bg-muted flex items-center justify-center overflow-hidden">
+                {cat.image ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
+                ) : (
+                  <ImageIcon className="size-5 text-muted-foreground" />
+                )}
               </div>
-              <div>
-                <p className="text-sm font-bold text-foreground">{cat.name}</p>
-                <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{cat.description}</p>
-              </div>
-              <div className="pt-2 border-t border-border">
-                <p className="text-xs text-muted-foreground">
-                  <span className="text-foreground font-semibold">{cat.products}</span> Products
-                </p>
+              <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button
+                  onClick={() => handleEdit(cat.id)}
+                  className="p-1.5 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20"
+                >
+                  <Edit2 className="size-3" />
+                </button>
+                <button
+                  onClick={() => handleDelete(cat.id)}
+                  className="p-1.5 rounded-md bg-red-500/10 text-red-400 hover:bg-red-500/20"
+                >
+                  <Trash2 className="size-3" />
+                </button>
               </div>
             </div>
-          )
-        })}
+            <div>
+              <p className="text-sm font-bold text-foreground">{cat.name}</p>
+              <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">{cat.description}</p>
+            </div>
+            <div className="pt-2 border-t border-border">
+              <p className="text-xs text-muted-foreground">
+                <span className="text-foreground font-semibold">{cat.products}</span> Products
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Modal */}
@@ -151,7 +148,17 @@ export default function CategoriesPage() {
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="e.g. Electronics"
+                  placeholder="e.g. Illustration"
+                  className="w-full h-9 px-3 text-sm bg-muted rounded-lg border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-muted-foreground mb-1.5 block">Image URL</label>
+                <input
+                  type="text"
+                  value={form.image}
+                  onChange={(e) => setForm({ ...form, image: e.target.value })}
+                  placeholder="/images/category-name.png"
                   className="w-full h-9 px-3 text-sm bg-muted rounded-lg border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>

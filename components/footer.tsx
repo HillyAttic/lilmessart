@@ -21,7 +21,7 @@ export default function Footer() {
                 Shop all
               </Link>
               <ul className="flex flex-col gap-2">
-                {['Accessories', 'Beauty', 'Bestsellers', 'Homeware', 'Lifestyle'].map((item) => (
+                {['Illustration', 'Abstract', 'Landscape', 'Still Life'].map((item) => (
                   <li key={item}>
                     <Link href="#" className="text-sm text-[#6b6b6b] hover:text-[#0f0f0f] transition-colors">
                       {item}

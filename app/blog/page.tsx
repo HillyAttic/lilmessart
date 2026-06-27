@@ -33,7 +33,7 @@ const blogPosts = [
   },
   {
     image: 'https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?w=800&q=80',
-    category: 'Lifestyle',
+    category: 'Illustration',
     title: 'Embracing Minimalism: Less is More',
     excerpt: 'Learn how to embrace minimalist design principles without sacrificing warmth and personality in your home.',
     date: 'February 28, 2024',
@@ -60,7 +60,7 @@ const blogPosts = [
   },
   {
     image: 'https://images.unsplash.com/photo-1540932239986-30128072f229?w=800&q=80',
-    category: 'Lifestyle',
+    category: 'Landscape',
     title: 'Creating a Morning Routine That Nourishes',
     excerpt: 'Design a morning ritual that sets a positive tone for your day with thoughtful touches and intentional spaces.',
     date: 'February 10, 2024',
@@ -90,7 +90,8 @@ const blogPosts = [
 const categories = [
   { name: 'All Posts', count: 9 },
   { name: 'Collaboration', count: 3 },
-  { name: 'Lifestyle', count: 2 },
+  { name: 'Illustration', count: 2 },
+  { name: 'Landscape', count: 2 },
   { name: 'Design', count: 2 },
   { name: 'Announcements', count: 2 },
 ]
@@ -320,7 +321,7 @@ export default function BlogPage() {
             href="/bestsellers"
             className="inline-flex items-center gap-2 bg-[#0f0f0f] text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#333] transition-colors"
           >
-            Shop Bestsellers
+            Shop Illustrations
           </Link>
         </div>
       </section>
