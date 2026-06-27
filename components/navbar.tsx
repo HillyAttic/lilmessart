@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ShoppingCart, User } from 'lucide-react'
 
 const navItems = [
-  { label: 'Shop all', href: '/bestsellers' },
+  { label: 'Home', href: '/' },
   { label: 'Bestsellers', href: '/bestsellers' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },

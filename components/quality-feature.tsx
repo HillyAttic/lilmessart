@@ -7,7 +7,7 @@ export default function QualityFeature() {
         {/* Image */}
         <div className="relative aspect-[3/4] max-w-sm w-full">
           <Image
-            src="/images/feature-quality.png"
+            src="https://i.pinimg.com/1200x/10/87/7d/10877dc82e533eff4c7e5528b7d574d7.jpg"
             alt="Feature image"
             fill
             className="object-cover"

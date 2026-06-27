@@ -24,7 +24,7 @@ export default function EverydayLiving() {
         {/* Image on right */}
         <div className="relative aspect-[3/4] max-w-sm w-full md:ml-auto">
           <Image
-            src="/images/feature-everyday.png"
+            src="https://i.pinimg.com/1200x/9d/0d/25/9d0d258c0b2749011b8aee24b22c2edb.jpg"
             alt="Feature image"
             fill
             className="object-cover"

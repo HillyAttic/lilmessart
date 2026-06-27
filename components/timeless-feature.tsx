@@ -7,7 +7,7 @@ export default function TimelessFeature() {
         {/* Image */}
         <div className="relative aspect-[3/4] max-w-sm w-full">
           <Image
-            src="/images/feature-timeless.png"
+            src="https://i.pinimg.com/736x/18/8f/a1/188fa103e56eee0a4b9a0380072dba60.jpg"
             alt="Feature image"
             fill
             className="object-cover"

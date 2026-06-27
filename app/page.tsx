@@ -4,7 +4,6 @@ import Hero from '@/components/hero'
 import Bestsellers from '@/components/bestsellers'
 import Categories from '@/components/categories'
 import TimelessFeature from '@/components/timeless-feature'
-import AsSeenOn from '@/components/as-seen-on'
 import NewIn from '@/components/new-in'
 import EverydayLiving from '@/components/everyday-living'
 import BlogPosts from '@/components/blog-posts'
@@ -22,7 +21,6 @@ export default function Home() {
       <Bestsellers />
       <Categories />
       <TimelessFeature />
-      <AsSeenOn />
       <NewIn />
       <EverydayLiving />
       <BlogPosts />

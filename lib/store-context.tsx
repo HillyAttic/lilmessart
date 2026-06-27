@@ -28,10 +28,10 @@ const seedProducts: Product[] = [
 ]
 
 const seedCategories: Category[] = [
-  { id: 1, name: "Illustration", image: "/images/category-beauty.png", products: 2, description: "Hand-drawn and digital illustrations" },
-  { id: 2, name: "Abstract", image: "/images/category-bestsellers.png", products: 2, description: "Abstract and contemporary art" },
-  { id: 3, name: "Landscape", image: "/images/category-lifestyle.png", products: 2, description: "Scenic and nature-inspired art" },
-  { id: 4, name: "Still Life", image: "/images/category-homeware.png", products: 2, description: "Classic still life compositions" },
+  { id: 1, name: "Illustration", image: "https://i.pinimg.com/736x/0e/03/a4/0e03a4da5bb2815d33a845a6ba517219.jpg", products: 2, description: "Hand-drawn and digital illustrations" },
+  { id: 2, name: "Abstract", image: "https://i.pinimg.com/1200x/cf/83/49/cf83490e2a369ef7d8752f37bb26553b.jpg", products: 2, description: "Abstract and contemporary art" },
+  { id: 3, name: "Landscape", image: "https://i.pinimg.com/736x/e5/25/fd/e525fd76fcf1accf55dd8f23930fba47.jpg", products: 2, description: "Scenic and nature-inspired art" },
+  { id: 4, name: "Still Life", image: "https://i.pinimg.com/736x/bc/f7/5c/bcf75ccedc9a18775af72f09bec40376.jpg", products: 2, description: "Classic still life compositions" },
 ]
 
 // ---------- context shape ----------
