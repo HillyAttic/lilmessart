@@ -4,6 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useStore } from '@/lib/store-context'
 
+// Hardcoded image overrides — Firestore may have stale paths
+const CATEGORY_IMAGES: Record<string, string> = {
+  Illustration: 'https://i.pinimg.com/736x/0e/03/a4/0e03a4da5bb2815d33a845a6ba517219.jpg',
+  Abstract: 'https://i.pinimg.com/1200x/cf/83/49/cf83490e2a369ef7d8752f37bb26553b.jpg',
+  Landscape: 'https://i.pinimg.com/736x/e5/25/fd/e525fd76fcf1accf55dd8f23930fba47.jpg',
+  'Still Life': 'https://i.pinimg.com/736x/bc/f7/5c/bcf75ccedc9a18775af72f09bec40376.jpg',
+}
+
 export default function Categories() {
   const { categories } = useStore()
 
@@ -30,11 +38,12 @@ export default function Categories() {
             style={{ aspectRatio: '4/3' }}
           >
             <Image
-              src={cat.image || '/images/category-bestsellers.png'}
+              src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
               alt={cat.name}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, 50vw"
+              referrerPolicy="no-referrer"
             />
             {/* Dark overlay at bottom */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />

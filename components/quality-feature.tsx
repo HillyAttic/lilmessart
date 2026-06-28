@@ -12,6 +12,7 @@ export default function QualityFeature() {
             fill
             className="object-cover"
             sizes="(max-width: 768px) 90vw, 40vw"
+            referrerPolicy="no-referrer"
           />
         </div>
 
