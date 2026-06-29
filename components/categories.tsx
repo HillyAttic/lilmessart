@@ -34,14 +34,27 @@ export default function Categories() {
           <Link
             key={cat.id}
             href={`/bestsellers?category=${encodeURIComponent(cat.name)}`}
-            className="group relative overflow-hidden rounded-xl"
-            style={{ aspectRatio: '4/3' }}
+            className="group relative overflow-hidden rounded-xl aspect-[155/207] md:aspect-[4/3]"
           >
+            {/* Mobile: 155x207px plain img */}
+            <img
+              alt={cat.name}
+              loading="lazy"
+              decoding="async"
+              data-nimg="fill"
+              className="object-cover transition-transform duration-500 group-hover:scale-105 md:hidden"
+              src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
+              style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', color: 'transparent' }}
+              referrerPolicy="no-referrer"
+              width={155}
+              height={207}
+            />
+            {/* Desktop: optimized Next.js Image */}
             <Image
               src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
               alt={cat.name}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105 hidden md:block"
               sizes="(max-width: 768px) 50vw, 50vw"
               referrerPolicy="no-referrer"
             />
@@ -50,7 +63,7 @@ export default function Categories() {
 
             {/* Label area at bottom */}
             <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col items-center gap-3">
-              <h3 className="text-white font-black uppercase text-2xl md:text-4xl tracking-tight text-shadow">
+              <h3 className="text-white font-black uppercase text-sm md:text-4xl tracking-tight text-shadow leading-tight text-center w-full px-2">
                 {cat.name}
               </h3>
               <span className="flex items-center gap-1.5 bg-[#740A03] text-white text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#8C0E04] transition-colors whitespace-nowrap">
