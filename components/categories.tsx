@@ -12,10 +12,24 @@ const CATEGORY_IMAGES: Record<string, string> = {
   'Still Life': 'https://i.pinimg.com/736x/bc/f7/5c/bcf75ccedc9a18775af72f09bec40376.jpg',
 }
 
-export default function Categories() {
-  const { categories } = useStore()
+const SKELETON_CATEGORIES = [
+  { id: 1, name: 'Illustration' },
+  { id: 2, name: 'Abstract' },
+  { id: 3, name: 'Landscape' },
+  { id: 4, name: 'Still Life' },
+]
 
-  if (categories.length === 0) return null
+function SkeletonCategoryCard() {
+  return (
+    <div className="group relative overflow-hidden rounded-xl aspect-[155/207] md:aspect-[4/3] animate-pulse bg-[#e5e5e0]" />
+  )
+}
+
+export default function Categories() {
+  const { categories, loading } = useStore()
+
+  // Never hide the section — show skeleton while loading, seed data as fallback
+  const displayCategories = categories.length > 0 ? categories : SKELETON_CATEGORIES.map(c => ({ ...c, image: '', products: 0, description: '' }))
 
   return (
     <section className="px-6 md:px-10 py-10">
@@ -30,48 +44,50 @@ export default function Categories() {
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:gap-4">
-        {categories.map((cat) => (
-          <Link
-            key={cat.id}
-            href={`/bestsellers?category=${encodeURIComponent(cat.name)}`}
-            className="group relative overflow-hidden rounded-xl aspect-[155/207] md:aspect-[4/3]"
-          >
-            {/* Mobile: 155x207px plain img */}
-            <img
-              alt={cat.name}
-              loading="lazy"
-              decoding="async"
-              data-nimg="fill"
-              className="object-cover transition-transform duration-500 group-hover:scale-105 md:hidden"
-              src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
-              style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', color: 'transparent' }}
-              referrerPolicy="no-referrer"
-              width={155}
-              height={207}
-            />
-            {/* Desktop: optimized Next.js Image */}
-            <Image
-              src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
-              alt={cat.name}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105 hidden md:block"
-              sizes="(max-width: 768px) 50vw, 50vw"
-              referrerPolicy="no-referrer"
-            />
-            {/* Dark overlay at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+        {loading
+          ? SKELETON_CATEGORIES.map((cat) => <SkeletonCategoryCard key={cat.id} />)
+          : displayCategories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/bestsellers?category=${encodeURIComponent(cat.name)}`}
+                className="group relative overflow-hidden rounded-xl aspect-[155/207] md:aspect-[4/3]"
+              >
+                {/* Mobile: 155x207px plain img */}
+                <img
+                  alt={cat.name}
+                  loading="lazy"
+                  decoding="async"
+                  data-nimg="fill"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 md:hidden"
+                  src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
+                  style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', color: 'transparent' }}
+                  referrerPolicy="no-referrer"
+                  width={155}
+                  height={207}
+                />
+                {/* Desktop: optimized Next.js Image */}
+                <Image
+                  src={CATEGORY_IMAGES[cat.name] || cat.image || '/images/category-bestsellers.png'}
+                  alt={cat.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 hidden md:block"
+                  sizes="(max-width: 768px) 50vw, 50vw"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Dark overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-            {/* Label area at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col items-center gap-3">
-              <h3 className="text-white font-black uppercase text-sm md:text-4xl tracking-tight text-shadow leading-tight text-center w-full px-2">
-                {cat.name}
-              </h3>
-              <span className="flex items-center gap-1.5 bg-[#740A03] text-white text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#8C0E04] transition-colors whitespace-nowrap">
-                Shop {cat.name}
-              </span>
-            </div>
-          </Link>
-        ))}
+                {/* Label area at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col items-center gap-3">
+                  <h3 className="text-white font-black uppercase text-sm md:text-4xl tracking-tight text-shadow leading-tight text-center w-full px-2">
+                    {cat.name}
+                  </h3>
+                  <span className="flex items-center gap-1.5 bg-[#740A03] text-white text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#8C0E04] transition-colors whitespace-nowrap">
+                    Shop {cat.name}
+                  </span>
+                </div>
+              </Link>
+            ))}
       </div>
     </section>
   )

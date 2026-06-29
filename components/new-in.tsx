@@ -4,12 +4,23 @@ import Link from 'next/link'
 import ProductCard from './product-card'
 import { useStore } from '@/lib/store-context'
 
+function SkeletonCard() {
+  return (
+    <div className="animate-pulse">
+      <div className="relative overflow-hidden aspect-[3/4] bg-[#e5e5e0] rounded-lg" />
+      <div className="mt-3 space-y-2">
+        <div className="h-5 w-16 bg-[#e5e5e0] rounded-full" />
+        <div className="h-4 w-3/4 bg-[#e5e5e0] rounded" />
+        <div className="h-4 w-1/3 bg-[#e5e5e0] rounded" />
+      </div>
+    </div>
+  )
+}
+
 export default function NewIn() {
-  const { products } = useStore()
+  const { products, loading } = useStore()
   // Show the last 4 added products as "New In"
   const newProducts = products.slice(-4).reverse()
-
-  if (newProducts.length === 0) return null
 
   return (
     <section id="new-in" className="px-6 md:px-10 py-20">
@@ -24,15 +35,17 @@ export default function NewIn() {
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-        {newProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            image={product.image || '/images/geo-play-blocks.png'}
-            name={product.name}
-            price={product.price}
-            category={product.category}
-          />
-        ))}
+        {loading
+          ? Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
+          : newProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                image={product.image || '/images/geo-play-blocks.png'}
+                name={product.name}
+                price={product.price}
+                category={product.category}
+              />
+            ))}
       </div>
     </section>
   )

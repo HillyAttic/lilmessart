@@ -60,20 +60,28 @@ const StoreContext = createContext<StoreContextValue | null>(null)
 // ---------- provider ----------
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [products, setProducts] = useState<Product[]>([])
-  const [categories, setCategories] = useState<Category[]>([])
+  // Start with seed data so the UI renders instantly (no waiting for Firestore)
+  // When Firestore responds, it replaces this with live data
+  const [products, setProducts] = useState<Product[]>(seedProducts)
+  const [categories, setCategories] = useState<Category[]>(seedCategories)
   const [loading, setLoading] = useState(true)
 
   // --- Firestore listeners ---
 
   useEffect(() => {
+    let productsSeeded = false
+    let categoriesSeeded = false
+
     // Listen to products collection
     const productsQuery = query(collection(db, "products"), orderBy("name"))
 
     const unsubProducts = onSnapshot(productsQuery, (snapshot) => {
       if (snapshot.empty) {
         // Seed data on first load
-        seedFirestore()
+        if (!productsSeeded) {
+          productsSeeded = true
+          seedFirestore()
+        }
       } else {
         const list: Product[] = []
         snapshot.forEach((d) => list.push(d.data() as Product))
@@ -87,7 +95,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
     const unsubCategories = onSnapshot(categoriesQuery, (snapshot) => {
       if (snapshot.empty) {
-        seedCategoriesToFirestore()
+        if (!categoriesSeeded) {
+          categoriesSeeded = true
+          seedCategoriesToFirestore()
+        }
       } else {
         const list: Category[] = []
         snapshot.forEach((d) => list.push(d.data() as Category))
