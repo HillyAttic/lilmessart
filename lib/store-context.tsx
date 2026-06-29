@@ -59,11 +59,25 @@ const StoreContext = createContext<StoreContextValue | null>(null)
 
 // ---------- provider ----------
 
-export function StoreProvider({ children }: { children: ReactNode }) {
-  // Start with seed data so the UI renders instantly (no waiting for Firestore)
-  // When Firestore responds, it replaces this with live data
-  const [products, setProducts] = useState<Product[]>(seedProducts)
-  const [categories, setCategories] = useState<Category[]>(seedCategories)
+interface StoreProviderProps {
+  children: ReactNode
+  initialProducts?: Product[]
+  initialCategories?: Category[]
+}
+
+export function StoreProvider({
+  children,
+  initialProducts,
+  initialCategories,
+}: StoreProviderProps) {
+  // Start with server-fetched data if provided, otherwise fall back to seed data
+  // This enables SSR: server fetches data → HTML renders instantly → client hydrates
+  const [products, setProducts] = useState<Product[]>(
+    initialProducts && initialProducts.length > 0 ? initialProducts : seedProducts
+  )
+  const [categories, setCategories] = useState<Category[]>(
+    initialCategories && initialCategories.length > 0 ? initialCategories : seedCategories
+  )
   const [loading, setLoading] = useState(true)
 
   // --- Firestore listeners ---
